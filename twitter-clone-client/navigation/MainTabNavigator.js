@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, TouchableOpacity } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import BirdhouseOutline from "../assets/images/Twitterbirdhouseoutline.png"
@@ -8,23 +8,24 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import MessagesScreen from '../screens/MessagesScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  title: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
       }
     />
-  ),
+  )
 };
 
 const LinksStack = createStackNavigator({
@@ -36,7 +37,7 @@ LinksStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}
     />
   ),
 };
@@ -50,7 +51,21 @@ SettingsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-notifications' : 'md-notifications'}
+    />
+  ),
+};
+
+const MessageStack = createStackNavigator({
+  Messages: MessagesScreen
+});
+
+MessageStack.navigationOptions = {
+  tabBarLabel: 'Messages',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon 
+    focused={focused}
+    name={Platform.OS === 'ios' ? 'ios-mail' : 'md-mail'}
     />
   ),
 };
@@ -59,4 +74,9 @@ export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  MessageStack
+}, {
+  TabBarOptions: {
+    style: {}
+  }
 });

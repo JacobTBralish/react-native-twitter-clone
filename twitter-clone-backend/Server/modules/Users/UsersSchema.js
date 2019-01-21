@@ -45,12 +45,6 @@ const userSchema = new mongoose.Schema({
   birthdate: {
     type: Date,
     required: true
-  },
-  following: {
-    type: Array
-  },
-  followers: {
-    type: Array
   }
 });
 

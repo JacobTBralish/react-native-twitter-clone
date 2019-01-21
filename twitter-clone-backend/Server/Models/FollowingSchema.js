@@ -13,8 +13,9 @@ const followingSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  userName: {
-    type: String,
+  userFollowing: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
     required: true
   }
 });

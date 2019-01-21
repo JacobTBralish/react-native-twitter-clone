@@ -4,7 +4,7 @@ import * as UsersController from "./UsersController";
 
 const routes = new Router();
 
-routes.post("/users", UsersController.createUser);
-routes.get("/users", UsersController.getAllUsers);
+routes.post("/user", UsersController.createUser);
+routes.get("/user", UsersController.getAllUsers);
 
 export default routes;

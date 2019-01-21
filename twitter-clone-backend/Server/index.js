@@ -12,6 +12,15 @@ app.use(morgan("dev"));
 // -----Database ----- \\
 dbConfig(process.env.MONGO_DB_URL);
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use("/api", [UserRoutes, TweetsRoutes]);
 
 // app.get("/", (req, res) => {

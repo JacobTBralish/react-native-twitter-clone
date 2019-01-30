@@ -11,6 +11,8 @@ import NotificationScreen from "../../screens/Notifications";
 import MessagesScreen from "../../screens/Messages";
 import TabBarIcon from "./TabBarIcon";
 
+import DrawerNav from "../DrawerNavigator/DrawerNavigator";
+
 const HomeStack = createStackNavigator({
   Home: {
     screen: HomeScreen
@@ -78,5 +80,17 @@ const TabContainer = createBottomTabNavigator(
     }
   }
 );
+
+// const nav = createStackNavigator(
+//   {
+//     Tab: TabContainer,
+//     Drawer: DrawerNav
+//   },
+//   {
+//     navigationOptions: {
+//       header: "none"
+//     }
+//   }
+// );
 
 export default createAppContainer(TabContainer);

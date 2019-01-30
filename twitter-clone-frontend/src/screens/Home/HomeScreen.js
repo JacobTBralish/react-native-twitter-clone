@@ -10,16 +10,22 @@ import { toggleModal, postTweet } from "../../store/actions/tweets";
 import ModalComponent from "../../Components/Modal/Modal";
 import TweetModal from "../../Components/Modal/ModalScreens/Tweet";
 
+import DataFetcher from "../../Components/DataFetcher/DataFetcher";
+import { Auth } from "aws-amplify";
+
 class HomeScreen extends Component {
-  static navigationOptions = {
-    headerTitle: <UserImage title="Home" />
-  };
+  static navigationOptions = ({ navigation }) => ({
+    headerLeft: <UserImage navigate={navigation.navigate} title="Home" />
+  });
 
   handleInput = text => {
     this.setState({ tweet: text });
   };
 
   render() {
+    console.log("Auth", Auth);
+    console.log("Auth.currentUserCredentials", Auth.currentUserCredentials());
+    console.log("Auth.user", Auth.user);
     return (
       <View style={styles.container}>
         <ModalComponent
@@ -32,7 +38,12 @@ class HomeScreen extends Component {
         </ModalComponent>
         <Text>This is the home screen</Text>
         <View>
-          <TweetList />
+          <DataFetcher
+            url="http://10.0.2.2:4003/api/tweet"
+            render={data => {
+              return <TweetList data={data} />;
+            }}
+          />
         </View>
         <View>
           <FloatingButton
@@ -47,7 +58,8 @@ class HomeScreen extends Component {
 
 const mapStateToProps = state => {
   return {
-    modalOpened: state.tweets.modalOpened
+    modalOpened: state.tweets.modalOpened,
+    user: state.user.user
   };
 };
 

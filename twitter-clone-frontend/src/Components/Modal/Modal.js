@@ -4,7 +4,6 @@ import { withNavigation } from "react-navigation";
 
 class ModalComponent extends Component {
   render() {
-    console.log("this.props.navigation", this.props.navigation);
     const { children } = this.props;
     const { routeName } = this.props.navigation.state;
 

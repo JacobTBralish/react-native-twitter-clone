@@ -1,4 +1,4 @@
-import Tweet from "./TweetsSchema";
+import tweet from "./TweetsSchema";
 
 module.exports = {
   createTweet: async (req, res, next) => {
@@ -7,11 +7,12 @@ module.exports = {
 
     try {
       console.log("Here we are");
-      let tweet = await new Tweet.create(createdTweet);
-      tweet.save();
-      console.log("tweet: ", tweet);
-      res.status(201).json(tweet);
+      let tweetPost = await tweet.create(createdTweet);
+      tweetPost.save();
+      console.log("tweetPost: ", tweetPost);
+      res.status(201).json(tweetPost);
     } catch (error) {
+      console.log("error: ", error);
       res.status(500).json({
         error: true,
         message: "There was an error creating the tweet"
@@ -19,7 +20,8 @@ module.exports = {
     }
   },
   getAllTweets: async (req, res, next) => {
-    const foundTweets = await Tweet.find({})
+    const foundTweets = await tweet
+      .find({})
       .lean()
       .exec();
     res.status(200).json(foundTweets);

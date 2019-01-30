@@ -5396,6 +5396,13 @@ react-navigation-stack@1.0.6:
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.0.6.tgz#5c2b6617dccc1de6001b387cd967baa6b205132d"
   integrity sha512-7vnoceO6d/KYvtOSi3Ui3u1gvZEF/dBrOn+Gb1zqiZ3t+0oWRPpU36OmXAh/SwI5aokQyoihAlH9UBMfp+fbEA==
 
+react-navigation-switch-transitioner@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-navigation-switch-transitioner/-/react-navigation-switch-transitioner-0.0.8.tgz#c7290ba31eb6d746308fd0bf412388f871b33677"
+  integrity sha512-yYlp15UHmY5dpOaaeuq/pcn1CCuwWjQPuaXHDmaodCj/6rlsvvNGY3iCUwn+8836Y3Mj0loV9D4iiJskCs2X/Q==
+  dependencies:
+    hoist-non-react-statics "^3.0.1"
+
 react-navigation-tabs@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-1.0.2.tgz#cc6c61db0c61054388ef6f726a8ffc183d6095b5"

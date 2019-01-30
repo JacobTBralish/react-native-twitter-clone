@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import reduxPromiseMiddleware from "redux-promise-middleware";
 import TweetReducer from "./reducers/tweets";
+import UserReducer from "./reducers/user";
 
 const rootReducer = combineReducers({
-  tweets: TweetReducer
+  tweets: TweetReducer,
+  user: UserReducer
 });
 
 const configureStore = () => {
